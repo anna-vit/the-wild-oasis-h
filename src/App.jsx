@@ -2,15 +2,12 @@ import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import Button from "./ui/Button";
 import Input from "./ui/Input";
-
-const H1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-`;
+import Heading from "./ui/Heading";
+import Row from "./ui/Row";
 
 const StyleApp = styled.div`
-  background-color: orangered;
-  padding: 20ox;
+  /* background-color: orangered; */
+  padding: 20px;
 `;
 
 function App() {
@@ -18,9 +15,30 @@ function App() {
     <>
       <GlobalStyles />
       <StyleApp>
-        <H1>Hello React + Vite</H1>
-        <Button onClick={() => alert("Check in")}>Check in</Button>
-        <Input type="number" placeholder="Number of guests"></Input>
+        <Row>
+          <Row type="horizontal">
+            <Heading as={"h1"}>The Wild Oasic</Heading>
+
+            <div>
+              <Heading as={"h2"}>The Wild Oasic</Heading>
+              <Button
+                variation="primary"
+                size="medium"
+                onClick={() => alert("Check in")}
+              >
+                Check in
+              </Button>
+              <Button onClick={() => alert("Check 0ut")}>Check out</Button>
+            </div>
+          </Row>
+
+          <Row type="vertical">
+            <Heading as={"h3"}>The Wild Oasic</Heading>
+            <form>
+              <Input type="number" placeholder="Number of guests"></Input>
+            </form>
+          </Row>
+        </Row>
       </StyleApp>
     </>
   );
